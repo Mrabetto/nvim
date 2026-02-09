@@ -8,3 +8,6 @@ vim.keymap.set("n", "<leader>l", "<cmd>Lazy<CR>", { desc = "Lazy menu" })
 vim.keymap.set("n", "<leader>e", "<cmd>lua MiniFiles.open()<CR>", { desc = "Open file explorer" })
 vim.keymap.set("n", "<leader>t", ":tabnew<CR>", { desc = "Open a new tab" })
 
+-- delete single character without copying into register
+vim.keymap.set('n', 'x', '"_x', opts)
+

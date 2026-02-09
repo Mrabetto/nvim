@@ -1,0 +1,5 @@
+--NOTE this is where we choose our cmp method for this comfig
+-- require("testing.test")
+-- require("testing.blink")
+return{
+}
