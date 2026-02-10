@@ -38,3 +38,10 @@ action_set.select:replace_if(
     return action_set.select(prompt_bufnr, "default")  
   end  
 )
+
+--- highlight on yank (from kickstart)
+vim.api.nvim_create_autocmd('TextYankPost', {
+  desc = 'Highlight when yanking (copying) text',
+  group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
+  callback = function() vim.hl.on_yank() end,
+})
