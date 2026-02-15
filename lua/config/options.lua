@@ -7,6 +7,15 @@ vim.opt.showtabline = 2
 vim.opt.scrolloff= 10
 vim.opt.undofile=true
 vim.opt.undodir = vim.fn.stdpath('state') .. '/undo//'
+-- vim.o.textwidth=80
+vim.o.columns=180
+vim.o.ignorecase = true -- Case-insensitive searching UNLESS \C or capital in search (default: false)
+
+
+vim.cmd.colorscheme='tokyonight-night'
+-- vim.o.conceallevel = 0 -- So that `` is visible in markdown files (default: 1)
+
+
 
 
 -- require('telescope').setup {  
