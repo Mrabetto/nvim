@@ -1,4 +1,4 @@
-    - Added the nordic and tokyonight-night colorschemes
-    - Added a keybind to view colorschemes in telescope
-	- FIXME I get some telescope error for it
-    - Some identation plugins were added, still need to figure out how they work
+- Re-Added nordic and the tokyonight theme
+- fixed the telescope colorscheme picker error (no preview yet)
+- new colorscheme.lua file in the config folder to store the selected theme - for persistence
+- fixed the keybind to set the selected colorscheme into config.colorscheme using telescope (credit goes to chatGPT)
