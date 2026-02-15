@@ -37,16 +37,16 @@ local action_set = require('telescope.actions.set')
 local action_state = require('telescope.actions.state')  
   
 -- Make select_tab only work when file is not already open  
-action_set.select:replace_if(  
-  function()  
-    local entry = action_state.get_selected_entry()  
-    return entry and entry.bufnr ~= nil  
-  end,  
-  function(prompt_bufnr, type)  
-    -- If file is already open, use default instead of tab  
-    return action_set.select(prompt_bufnr, "default")  
-  end  
-)
+-- action_set.select:replace_if(  
+--   function()  
+--     local entry = action_state.get_selected_entry()  
+--     return entry and entry.bufnr ~= nil  
+--   end,  
+--   function(prompt_bufnr, type)  
+--     -- If file is already open, use default instead of tab  
+--     return action_set.select(prompt_bufnr, "default")  
+--   end  
+-- )
 
 --- highlight on yank (from kickstart)
 vim.api.nvim_create_autocmd('TextYankPost', {

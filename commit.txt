@@ -1,0 +1,4 @@
+    - Added the nordic and tokyonight-night colorschemes
+    - Added a keybind to view colorschemes in telescope
+	- FIXME I get some telescope error for it
+    - Some identation plugins were added, still need to figure out how they work

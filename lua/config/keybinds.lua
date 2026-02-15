@@ -18,8 +18,7 @@ local builtin = require 'telescope.builtin'
 vim.keymap.set('n', '<leader>fn', function() builtin.find_files { cwd = vim.fn.stdpath 'config' } end,
 { desc = '[S]earch [N]eovim files' })
 
-vim.keymap.set('n','<leader>ft',function ()
-    builtin.colorscheme {enable_preview=true}
+vim.keymap.set('n','<leader>ft',function () builtin.colorscheme {enable_preview=true} end)
 
 	--    local actions = require "telescope.actions"  
 	--    local action_state = require "telescope.actions.state"  
@@ -37,7 +36,7 @@ vim.keymap.set('n','<leader>ft',function ()
 	-- end,  
 	--    }  
 	--    vim.cmd.colorscheme selected_value 
-end)
+-- end)
 
 
 
