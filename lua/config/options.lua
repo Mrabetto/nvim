@@ -11,6 +11,9 @@ vim.opt.undodir = vim.fn.stdpath('state') .. '/undo//'
 vim.o.columns=180
 vim.o.ignorecase = true -- Case-insensitive searching UNLESS \C or capital in search (default: false)
 
+-- conceal level for obsidian "extra" ui features 
+vim.o.conceallevel = 1 
+
 
 -- vim.cmd.colorscheme='tokyonight-night'
 -- vim.o.conceallevel = 0 -- So that `` is visible in markdown files (default: 1)

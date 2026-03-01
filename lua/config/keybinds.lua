@@ -45,7 +45,7 @@ vim.keymap.set('n', '<leader>ft', function()
       return true
     end,
   })
-end)
+end,  { desc = "Select colorscheme" })
 
 -- vim.keymap.set('n','<leader>ft',function () 
 --     -- builtin.colorscheme() --{enable_preview=true} -- end)
