@@ -7,6 +7,15 @@ vim.opt.showtabline = 2
 vim.opt.scrolloff= 10
 vim.opt.undofile=true
 vim.opt.undodir = vim.fn.stdpath('state') .. '/undo//'
+-- vim.o.textwidth=80
+vim.o.columns=180
+vim.o.ignorecase = true -- Case-insensitive searching UNLESS \C or capital in search (default: false)
+
+
+-- vim.cmd.colorscheme='tokyonight-night'
+-- vim.o.conceallevel = 0 -- So that `` is visible in markdown files (default: 1)
+
+
 
 
 -- require('telescope').setup {  
@@ -28,13 +37,20 @@ local action_set = require('telescope.actions.set')
 local action_state = require('telescope.actions.state')  
   
 -- Make select_tab only work when file is not already open  
-action_set.select:replace_if(  
-  function()  
-    local entry = action_state.get_selected_entry()  
-    return entry and entry.bufnr ~= nil  
-  end,  
-  function(prompt_bufnr, type)  
-    -- If file is already open, use default instead of tab  
-    return action_set.select(prompt_bufnr, "default")  
-  end  
-)
+-- action_set.select:replace_if(  
+--   function()  
+--     local entry = action_state.get_selected_entry()  
+--     return entry and entry.bufnr ~= nil  
+--   end,  
+--   function(prompt_bufnr, type)  
+--     -- If file is already open, use default instead of tab  
+--     return action_set.select(prompt_bufnr, "default")  
+--   end  
+-- )
+
+--- highlight on yank (from kickstart)
+vim.api.nvim_create_autocmd('TextYankPost', {
+  desc = 'Highlight when yanking (copying) text',
+  group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
+  callback = function() vim.hl.on_yank() end,
+})
