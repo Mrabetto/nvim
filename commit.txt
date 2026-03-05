@@ -1,4 +1,3 @@
-- Re-Added nordic and the tokyonight theme
-- fixed the telescope colorscheme picker error (no preview yet)
-- new colorscheme.lua file in the config folder to store the selected theme - for persistence
-- fixed the keybind to set the selected colorscheme into config.colorscheme using telescope (credit goes to chatGPT)
+- Added desc for the theme selector in which key
+- Restored the lsp.lua file in config, with all the keybinds for diagnostics (need to remember to use those)
+- Conceal leven is set to one for obsidian.nvim
