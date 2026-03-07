@@ -1,4 +1,0 @@
-- Re-Added nordic and the tokyonight theme
-- fixed the telescope colorscheme picker error (no preview yet)
-- new colorscheme.lua file in the config folder to store the selected theme - for persistence
-- fixed the keybind to set the selected colorscheme into config.colorscheme using telescope (credit goes to chatGPT)

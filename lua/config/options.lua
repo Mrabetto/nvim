@@ -8,7 +8,7 @@ vim.opt.scrolloff= 10
 vim.opt.undofile=true
 vim.opt.undodir = vim.fn.stdpath('state') .. '/undo//'
 -- vim.o.textwidth=80
-vim.o.columns=180
+-- vim.o.columns=180
 vim.o.ignorecase = true -- Case-insensitive searching UNLESS \C or capital in search (default: false)
 
 -- conceal level for obsidian "extra" ui features 
