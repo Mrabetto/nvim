@@ -53,7 +53,22 @@ local action_state = require('telescope.actions.state')
 
 --- highlight on yank (from kickstart)
 vim.api.nvim_create_autocmd('TextYankPost', {
-  desc = 'Highlight when yanking (copying) text',
-  group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
-  callback = function() vim.hl.on_yank() end,
+    desc = 'Highlight when yanking (copying) text',
+    group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
+    callback = function() vim.hl.on_yank() end,
 })
+
+-- folding option, stolen from lehoangan2906
+vim.opt.foldmethod = "syntax"   -- or "indent"
+vim.opt.foldlevelstart = 99     -- start with all folds open
+
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "python",
+    callback = function()
+	vim.opt_local.foldmethod = "indent"
+	vim.opt_local.foldlevel = 99
+    end,
+})
+
+-- Prevent automatic comment continuation
+vim.opt.formatoptions:remove {'r', 'o'}

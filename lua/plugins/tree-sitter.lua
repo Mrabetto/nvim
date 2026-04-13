@@ -28,10 +28,10 @@ return{
 	    install_dir = vim.fn.stdpath('data') .. '/site'
 	}
 
-	require'nvim-treesitter'.install { 'rust', 'javascript', 'zig', 'python' , 'html', 'css','kdl' }
+	require'nvim-treesitter'.install { 'rust', 'javascript', 'zig', 'python' , 'html', 'css','kdl', 'c'}
 
 	vim.api.nvim_create_autocmd('FileType', {
-	    pattern = { 'rust', 'javascript', 'zig', 'python' , 'html', 'css','kdl' },
+	    pattern = { 'rust', 'javascript', 'zig', 'python' , 'html', 'css','kdl','c' },
 	    callback = function() vim.treesitter.start() end,
 	})
 

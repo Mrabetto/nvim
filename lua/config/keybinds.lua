@@ -2,11 +2,25 @@ vim.g.mapleader= " "
 -- vim.keymaps
 vim.keymap.set({'n','v'}, '<leader>/', 'gcc', { desc = 'Comment line' })
 vim.keymap.set("n", "<leader>w", "<cmd>w<CR>", { desc = "Save file" })
+vim.keymap.set("n", "<leader>q", "<cmd>q<CR>", { desc = "Quit neovim" })
 vim.keymap.set("n", "<leader>/", "gcc", { remap = true, desc = "Comment line" })
 vim.keymap.set("v", "<leader>/", "gc",  { remap = true, desc = "Comment selection" })
 vim.keymap.set("n", "<leader>l", "<cmd>Lazy<CR>", { desc = "Lazy menu" })
 vim.keymap.set("n", "<leader>e", "<cmd>lua MiniFiles.open()<CR>", { desc = "Open file explorer" })
 vim.keymap.set("n", "<leader>t", ":tabnew<CR>", { desc = "Open a new tab" })
+
+-- table={
+--     <A-h> <C-\><C-N><C-w>h
+--     <A-j> <C-\><C-N><C-w>j
+--     <A-k> <C-\><C-N><C-w>k
+--     <A-l> <C-\><C-N><C-w>l
+-- }
+-- keys for navigating windows within a tab/buffer(?)
+vim.keymap.set("n", "<A-j>", "<C-N><C-w>j", { desc = "Window movement test" })
+vim.keymap.set("n", "<A-h>", "<C-N><C-w>h", { desc = "Window movement test" })
+vim.keymap.set("n", "<A-k>", "<C-N><C-w>k", { desc = "Window movement test" })
+vim.keymap.set("n", "<A-l>", "<C-N><C-w>l", { desc = "Window movement test" })
+
 
 -- delete single character without copying into register
 vim.keymap.set('n', 'x', '"_x', opts)
