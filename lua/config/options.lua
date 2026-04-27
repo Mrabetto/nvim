@@ -12,7 +12,7 @@ vim.opt.undodir = vim.fn.stdpath('state') .. '/undo//'
 vim.o.ignorecase = true -- Case-insensitive searching UNLESS \C or capital in search (default: false)
 
 -- conceal level for obsidian "extra" ui features 
-vim.o.conceallevel = 1 
+vim.o.conceallevel = 1
 
 
 -- vim.cmd.colorscheme='tokyonight-night'
@@ -72,3 +72,46 @@ vim.api.nvim_create_autocmd("FileType", {
 
 -- Prevent automatic comment continuation
 vim.opt.formatoptions:remove {'r', 'o'}
+
+
+--- trying to make an autosave command after leaving insert mode in a markdown file
+vim.api.nvim_create_autocmd({'TextChanged','InsertLeave'},{
+    desc = 'Autosave markdown',
+    pattern="*.md",
+    callback = function ()
+    	-- print("this works")
+	vim.cmd.write()
+    end
+})
+
+--- wrapping words in markdown (in white space chars and non words etc...)
+vim.api.nvim_create_autocmd("FileType",{
+    pattern = "markdown",
+    callback = function ()
+	-- vim.o.linebreak(true)
+	-- option for line to break only at white spaces/non word char(\(,.;'")
+	vim.opt_local.linebreak = true
+	-- vim.bo.spell = true
+	-- vim.opt_local.spelllang = { "en_us", "fr" }
+	vim.cmd('setlocal spell spelllang=en_us,fr')
+	-- print("this does work")
+	--
+	--
+    end,
+})
+
+-- vim.api.nvim_create_autocmd("FileType",{
+--     pattern = "markdown",
+--     callback = function ()
+-- 	-- option Enabling spellcheck only for markdown files
+-- 	-- print("FIRED")
+-- 	-- vim.opt_local.spelllang ="en_us,fr"
+-- 	-- vim.opt_local.sp
+-- 	-- vim.opt_local.spelllang
+-- 	-- print("this does work")
+-- 	vim.bo.spell = true
+-- 	vim.opt_local.spelllang = { "en_us", "fr" }
+	-- vim.cmd('setlocal spelllang=en_us,fr')
+--     end
+-- })
+-- 

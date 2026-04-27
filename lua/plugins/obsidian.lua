@@ -29,7 +29,7 @@ return {
       -- },
       {
 	  name = "Misc",
-	  path = "~/Documents/Research/",
+	  path = "~/Documents/Research/Misc/",
       },
     },
 

@@ -2,7 +2,8 @@ vim.g.mapleader= " "
 -- vim.keymaps
 vim.keymap.set({'n','v'}, '<leader>/', 'gcc', { desc = 'Comment line' })
 vim.keymap.set("n", "<leader>w", "<cmd>w<CR>", { desc = "Save file" })
-vim.keymap.set("n", "<leader>q", "<cmd>q<CR>", { desc = "Quit neovim" })
+vim.keymap.set("n", "<leader>q", "<cmd>conf q<CR>", { desc = "Quit neovim (confirm quit)" })
+vim.keymap.set("n", "<leader>vsp", "<cmd>vsp<CR>", { desc = "Vertical split" })
 vim.keymap.set("n", "<leader>/", "gcc", { remap = true, desc = "Comment line" })
 vim.keymap.set("v", "<leader>/", "gc",  { remap = true, desc = "Comment selection" })
 vim.keymap.set("n", "<leader>l", "<cmd>Lazy<CR>", { desc = "Lazy menu" })
@@ -16,10 +17,10 @@ vim.keymap.set("n", "<leader>t", ":tabnew<CR>", { desc = "Open a new tab" })
 --     <A-l> <C-\><C-N><C-w>l
 -- }
 -- keys for navigating windows within a tab/buffer(?)
-vim.keymap.set("n", "<A-j>", "<C-N><C-w>j", { desc = "Window movement test" })
-vim.keymap.set("n", "<A-h>", "<C-N><C-w>h", { desc = "Window movement test" })
-vim.keymap.set("n", "<A-k>", "<C-N><C-w>k", { desc = "Window movement test" })
-vim.keymap.set("n", "<A-l>", "<C-N><C-w>l", { desc = "Window movement test" })
+vim.keymap.set("n", "<A-j>", "<C-w>j", { desc = "Window movement test" })
+vim.keymap.set("n", "<A-h>", "<C-w>h", { desc = "Window movement test" })
+vim.keymap.set("n", "<A-k>", "<C-w>k", { desc = "Window movement test" })
+vim.keymap.set("n", "<A-l>", "<C-w>l", { desc = "Window movement test" })
 
 
 -- delete single character without copying into register
@@ -103,3 +104,42 @@ end,  { desc = "Select colorscheme" })
 --
 --
 --
+
+
+
+-- keybinds for moving cursor down (multiline text) only of markdown 
+-- vim.api.nvim_create_autocmd("FileType",{
+--     pattern = "markdown",
+--     callback = function(args)
+-- 	vim.keymap.set({"n","v"},'j','gj',{ buffer = args.buf })
+-- 	vim.keymap.set({"n","v"},'k','gk',{ buffer = args.buf })
+--
+--     end
+-- })
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = { "markdown", "text", "gitcommit" },
+    callback = function(args)
+        vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", {
+            buffer = args.buf,
+            expr = true,
+        })
+        vim.keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", {
+            buffer = args.buf,
+            expr = true,
+        })
+    end,
+})
+
+
+-- trigger spell checker and cycle through the remaining errors inside buffer 
+vim.api.nvim_create_autocmd("FileType",{
+    pattern = "markdown",
+    callback = function (args)
+	local data = args.data
+	local spelle = function ()
+		vim.spell.check(data)
+	end
+    	-- vim.keymap.set("n","<leader>sc",spelle)
+	print(args)
+    end
+})
